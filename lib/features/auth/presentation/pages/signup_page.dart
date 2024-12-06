@@ -1,4 +1,6 @@
+import 'package:blog_app/features/auth/presentation/widgets/auth_bottom_text.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_field_text.dart';
+import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -33,7 +35,13 @@ class _SignUpPageState extends State<SignUpPage> {
               hintText: 'Name',
             ),
             SizedBox(height: 15),
-            AuthField(hintText: 'Password')
+            AuthField(hintText: 'Password'),
+            SizedBox(height: 20),
+            AuthGradientButton(
+              textMessage: 'Sign Up',
+            ),
+            SizedBox(height: 3),
+            AuthBottomText(),
           ],
         ),
       ),
