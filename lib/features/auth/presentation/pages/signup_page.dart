@@ -11,41 +11,63 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final emailTextEditingController = TextEditingController();
+  final nameTextEditingController = TextEditingController();
+  final passwordTextEditingController = TextEditingController();
+  final globalKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    emailTextEditingController.dispose();
+    nameTextEditingController.dispose();
+    passwordTextEditingController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Sign Up.",
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
+    return Scaffold(
+      body: Form(
+        key: globalKey,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Sign Up.",
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(height: 30),
-            AuthField(
-              hintText: 'Email',
-            ),
-            SizedBox(height: 15),
-            AuthField(
-              hintText: 'Name',
-            ),
-            SizedBox(height: 15),
-            AuthField(hintText: 'Password'),
-            SizedBox(height: 20),
-            AuthGradientButton(
-              textMessage: 'Sign Up',
-            ),
-            SizedBox(height: 3),
-            AuthBottomText(
-              messageFirst: "Don't have an account? ",
-              messageSecond: "Sign In",
-            ),
-          ],
+              const SizedBox(height: 30),
+              AuthField(
+                hintText: 'Email',
+                controller: emailTextEditingController,
+              ),
+              const SizedBox(height: 15),
+              AuthField(
+                controller: nameTextEditingController,
+                hintText: 'Name',
+              ),
+              const SizedBox(height: 15),
+              AuthField(
+                hintText: 'Password',
+                controller: passwordTextEditingController,
+                isObscureText: true,
+              ),
+              const SizedBox(height: 20),
+              const AuthGradientButton(
+                textMessage: 'Sign Up',
+              ),
+              const SizedBox(height: 3),
+              const AuthBottomText(
+                messageFirst: "Don't have an account? ",
+                messageSecond: "Sign In",
+              ),
+            ],
+          ),
         ),
       ),
     );
