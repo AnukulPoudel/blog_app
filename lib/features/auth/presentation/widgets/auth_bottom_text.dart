@@ -17,6 +17,7 @@ class AuthBottomText extends StatelessWidget {
             text: messageSecond,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: AppPallete.gradient2,
+                  fontWeight: FontWeight.bold,
                 ),
           ),
         ],
