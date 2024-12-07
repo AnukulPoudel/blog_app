@@ -41,7 +41,10 @@ class _SignUpPageState extends State<SignUpPage> {
               textMessage: 'Sign Up',
             ),
             SizedBox(height: 3),
-            AuthBottomText(),
+            AuthBottomText(
+              messageFirst: "Don't have an account? ",
+              messageSecond: "Sign In",
+            ),
           ],
         ),
       ),
