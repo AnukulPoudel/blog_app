@@ -1,32 +1,30 @@
-import 'package:blog_app/features/auth/presentation/pages/login_page.dart';
+import 'package:blog_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_bottom_text.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_field_text.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatefulWidget {
+class LoginInPage extends StatefulWidget {
   static MaterialPageRoute get route => MaterialPageRoute(
     builder: (context) {
-      return const SignUpPage();
+      return const LoginInPage();
     },
   );
 
-  const SignUpPage({super.key});
+  const LoginInPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LoginInPage> createState() => _LoginInPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _LoginInPageState extends State<LoginInPage> {
   final emailTextEditingController = TextEditingController();
-  final nameTextEditingController = TextEditingController();
   final passwordTextEditingController = TextEditingController();
   final globalKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     emailTextEditingController.dispose();
-    nameTextEditingController.dispose();
     passwordTextEditingController.dispose();
     super.dispose();
   }
@@ -34,7 +32,6 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Form(
         key: globalKey,
         child: Padding(
@@ -43,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Sign Up.",
+                "Sign In.",
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -56,25 +53,21 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 15),
               AuthField(
-                controller: nameTextEditingController,
-                hintText: 'Name',
-              ),
-              const SizedBox(height: 15),
-              AuthField(
                 hintText: 'Password',
                 controller: passwordTextEditingController,
                 isObscureText: true,
               ),
               const SizedBox(height: 20),
               const AuthGradientButton(
-                textMessage: 'Sign Up',
+                textMessage: 'Sign In',
               ),
               const SizedBox(height: 15),
               GestureDetector(
-                onTap: () async => await Navigator.push(context, LoginInPage.route),
+                onTap: () async =>
+                    await Navigator.push(context, SignUpPage.route),
                 child: const AuthBottomText(
-                  messageFirst: "Already have an account? ",
-                  messageSecond: "Sign In",
+                  messageFirst: "Don't have an account? ",
+                  messageSecond: "Sign Up",
                 ),
               ),
             ],

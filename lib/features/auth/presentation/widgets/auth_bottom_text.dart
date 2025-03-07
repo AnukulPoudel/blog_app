@@ -1,4 +1,5 @@
 import 'package:blog_app/core/themes/app_palate.dart';
+// import 'package:blog_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class AuthBottomText extends StatelessWidget {
@@ -9,19 +10,19 @@ class AuthBottomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
-      text: TextSpan(
-        text: messageFirst,
-        style: Theme.of(context).textTheme.titleMedium,
-        children: [
-          TextSpan(
-            text: messageSecond,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: AppPallete.gradient2,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-        ],
-      ),
-    );
+        text: TextSpan(
+          text: messageFirst,
+          style: Theme.of(context).textTheme.titleMedium,
+          children: [
+            TextSpan(
+              text: messageSecond,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: AppPallete.gradient2,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+          ],
+        ),
+      );
   }
 }

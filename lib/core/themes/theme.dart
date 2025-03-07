@@ -20,6 +20,9 @@ class AppTheme {
     colorScheme: const ColorScheme.dark().copyWith(
       surface: AppPallete.backgroundColor,
     ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppPallete.backgroundColor,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(24),
       enabledBorder: _border(),
